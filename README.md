@@ -1,6 +1,6 @@
 **1. Download and install anaconda.** https://www.anaconda.com/products/individual#Downloads
 
-**then create yolo environment in conda ：**
+**Then create yolo environment in conda ：**
 
 
 ```
@@ -11,7 +11,7 @@ activate yolo # switch environment from base to yolo
 
 **2. Download yolov5.** https://github.com/ultralytics/yolov5
 
-**install requirements under yolo environment：**
+**Install requirements under yolo environment：**
 
 
 ```
