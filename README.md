@@ -2,7 +2,6 @@
 
 **then create yolo environment in conda ：**
 
-In [ ]:
 
 ```
 conda create -n yolo python=3.8 
@@ -14,7 +13,6 @@ activate yolo # switch environment from base to yolo
 
 **install requirements under yolo environment：**
 
-In [ ]:
 
 ```
 pip install -r requirements.txt
@@ -30,8 +28,6 @@ pip install -r requirements.txt
 
 **after unzip labelimg folder, delete 'labelImg-master\data\predefined_classes.txt'. Otherwise there will be some strange classifications.**
 
-In [ ]:
-
 ```
 activate yolo
 conda install pyqt=5
@@ -44,7 +40,6 @@ python labelimg.py
 
 **put following code in the A.yaml file and change file path.**
 
-In [ ]:
 
 ```
 # train and val data as 1) directory: path/images/, 2) file: path/images.txt, or 3) list: [path1/images/, path2/images/]
@@ -59,8 +54,6 @@ names: ['A']
 
 **train your dataset.**
 
-In [ ]:
-
 ```
 import torch
 from IPython.display import Image, clear_output  # to display images
@@ -73,15 +66,11 @@ python train.py --img 640 --batch 50 --epochs 100 --data ../yolo/A.yaml --weight
 
 **after training, use another image to test. change image path.**
 
-In [ ]:
-
 ```
 python detect.py --weights /content/yolov5/runs/train/exp2/weights/best.pt --img 640 --conf 0.25 --source ../test.jpg
 ```
 
 **show detect result.**
-
-In [ ]:
 
 ```
 import matplotlib.pyplot as plt
