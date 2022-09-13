@@ -1,4 +1,4 @@
-**download and install anaconda.** https://www.anaconda.com/products/individual#Downloads
+**1. Download and install anaconda.** https://www.anaconda.com/products/individual#Downloads
 
 **then create yolo environment in conda ：**
 
@@ -9,7 +9,7 @@ conda info -e
 activate yolo # switch environment from base to yolo
 ```
 
-**download yolov5.** https://github.com/ultralytics/yolov5
+**2. Download yolov5.** https://github.com/ultralytics/yolov5
 
 **install requirements under yolo environment：**
 
@@ -18,15 +18,15 @@ activate yolo # switch environment from base to yolo
 pip install -r requirements.txt
 ```
 
-**create a folder 'yolo', including a folder 'images', a folder 'lables' and a yaml file 'A.yaml'.**
+**3. Create a folder 'yolo', including a folder 'images', a folder 'lables' and a yaml file 'A.yaml'.**
 
-**collecte several images of the object you want to detect and put them into 'images' folder.**
+** collecte several images of the object you want to detect and put them into 'images' folder.**
 
-**download labelimg. labelimg is a tool to help you lable collected images.** https://github.com/tzutalin/labelImg
+**4. Download labelimg. Labelimg is a tool to help you lable collected images.** https://github.com/tzutalin/labelImg
 
 (**you can also use Roboflow to lable.** https://roboflow.com/?ref=ultralytics)
 
-**after unzip labelimg folder, delete 'labelImg-master\data\predefined_classes.txt'. Otherwise there will be some strange classifications.**
+**After unzipping labelimg folder, delete 'labelImg-master\data\predefined_classes.txt'. Otherwise there will be some strange classifications.**
 
 ```
 activate yolo
@@ -36,10 +36,9 @@ pyrcc5 -o libs/resources.py resources.qrc
 python labelimg.py
 ```
 
-**use labelimg select the object in the images and save data in labels folder.**
+**5. Use labelimg select the object in the images and save data in labels folder.**
 
-**put following code in the A.yaml file and change file path.**
-
+**Put following code in the A.yaml file and change file path.**
 
 ```
 # train and val data as 1) directory: path/images/, 2) file: path/images.txt, or 3) list: [path1/images/, path2/images/]
@@ -52,7 +51,7 @@ nc: 1
 names: ['A']
 ```
 
-**train your dataset.**
+**6. Train your dataset.**
 
 ```
 import torch
@@ -64,13 +63,13 @@ print('Setup complete. Using torch %s %s' % (torch.__version__, torch.cuda.get_d
 python train.py --img 640 --batch 50 --epochs 100 --data ../yolo/A.yaml --weights yolov5s.pt --nosave --cache
 ```
 
-**after training, use another image to test. change image path.**
+**7. After training, use another image to test. change image path.**
 
 ```
 python detect.py --weights /content/yolov5/runs/train/exp2/weights/best.pt --img 640 --conf 0.25 --source ../test.jpg
 ```
 
-**show detect result.**
+**8. Show detect result.**
 
 ```
 import matplotlib.pyplot as plt
